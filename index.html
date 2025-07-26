@@ -1,1 +1,424 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Landing Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --navbar-height: 60px;
+        --primary-color: #fff8dc;
+        --accent-color: #f0c040;
+        --hover-bg: black;
+        --hover-color: white;
+        --transition-time: 0.4s;
+        --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+      }
+
+      #logo img {
+        margin: 10px 20px;
+        height: 60px;
+      }
+
+      #navbar {
+        display: flex;
+        position: relative;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+      }
+
+      #navbar ul {
+        display: flex;
+        list-style: none;
+        margin-left: auto;
+      }
+
+      #navbar ul li a {
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 25px;
+        transition: background-color var(--transition-time),
+          color var(--transition-time);
+      }
+
+      #navbar ul li a:hover {
+        background-color: white;
+        color: black;
+      }
+
+      #home {
+        display: flex;
+        flex-direction: column;
+        padding: 3px 100px;
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        background: url("./e3.jpg") no-repeat center center/cover;
+      }
+
+      #home h1 {
+        color: var(--primary-color);
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+      }
+
+      #home p {
+        color: white;
+        font-size: 1.2rem;
+        margin: 10px 0;
+        line-height: 1.8;
+      }
+
+      .btn {
+        padding: 12px 28px;
+        background-color: var(--accent-color);
+        color: black;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 25px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all var(--transition-time);
+      }
+
+      .btn:hover {
+        background-color: black;
+        color: white;
+        border-color: white;
+      }
+
+      .h-primary {
+        font-size: 2.4rem;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .h-secondary {
+        font-size: 1.5rem;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      #services {
+        margin: 40px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      #services .box {
+        border: 2px solid yellowgreen;
+        padding: 25px;
+        background-color: #fff8dc;
+        border-radius: 15px;
+        width: 270px;
+        transition: transform 0.4s ease-in-out, background-color 0.4s;
+      }
+
+      #services .box:hover {
+        transform: scale(1.05);
+        background-color: #fff;
+      }
+
+      #services .box img {
+        height: 150px;
+        margin: 0 auto 15px;
+        display: block;
+      }
+
+      #products-section {
+        position: relative;
+        padding: 30px 10px;
+        background: url("./e1.jpg") no-repeat center center/cover;
+        color: white;
+      }
+
+      #products-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      #products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+      }
+
+      #products img {
+        height: 150px;
+        border-radius: 20px;
+        padding: 10px;
+        animation: pulse 2s infinite;
+        background-color: white;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1.05);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1.05);
+        }
+      }
+
+      #contact {
+        position: relative;
+        padding: 40px 10px;
+        background: url("./h1.jpg") no-repeat center center/cover;
+        color: white;
+      }
+
+      #contact-box {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      #contact-box input,
+      #contact-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        border-radius: 10px;
+        font-size: 1rem;
+        border: none;
+      }
+
+      .cbtn {
+        margin-top: 20px;
+        padding: 12px 30px;
+        background-color: var(--accent-color);
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cbtn:hover {
+        background-color: black;
+        color: white;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      @media screen and (max-width: 1000px) {
+        #navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px;
+        }
+
+        #navbar ul {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        #navbar ul li {
+          margin: 5px 0;
+        }
+
+        #home {
+          padding: 20px;
+          height: auto;
+        }
+
+        #services,
+        #products {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #products img {
+          width: 80%;
+          max-width: 300px;
+        }
+
+        #contact-box {
+          width: 90%;
+        }
+
+        .h-primary {
+          font-size: 2rem;
+        }
+      }
+
+      @media screen and (max-width: 1170px) {
+        #navbar {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #navbar ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #navbar ul li {
+          padding: 8px 0;
+        }
+
+        #home {
+          padding: 20px;
+          text-align: center;
+        }
+
+        #products img {
+          width: 90%;
+          max-width: 250px;
+        }
+
+        #contact-box {
+          width: 95%;
+          padding: 10px;
+        }
+
+        .h-primary {
+          font-size: 1.8rem;
+        }
+
+        .btn,
+        .cbtn {
+          padding: 10px 20px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div id="logo">
+          <img src="./ark1.png" alt="Logo" />
+        </div>
+        <ul>
+          <li class="item"><a href="#home">Home</a></li>
+          <li class="item"><a href="#products">Product</a></li>
+          <li class="item"><a href="#services">Services</a></li>
+          <li class="item"><a href="#contact">Contact</a></li>
+          <li class="item"><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <h1 class="h-primary">Welcome to SSN Cart</h1>
+      <p>
+        Discover the ultimate shopping experience at SSN Cart, your one-stop
+        online destination for everything from fashion and gadgets to daily
+        groceries. Enjoy fast delivery, top deals, and trusted quality at
+        unbeatable prices.
+      </p>
+      <button class="btn">View Products</button>
+    </section>
+
+    <section id="services">
+      <div class="box">
+        <img src="./logo1.png" alt="Shopping" />
+        <h2 class="h-secondary center">Shopping</h2>
+        <p class="center">
+          Explore a wide range of products from electronics to essentials, all
+          under one roof. Seamless online shopping with secure checkout and
+          quick delivery.
+        </p>
+      </div>
+      <div class="box">
+        <img src="./p1.png" alt="Fashion" />
+        <h2 class="h-secondary center">Fashion</h2>
+        <p class="center">
+          Stay trendy with the latest in fashion. Shop clothing, accessories,
+          and footwear for all seasons, curated from top brands at affordable
+          prices.
+        </p>
+      </div>
+      <div class="box">
+        <img src="./logo2.png" alt="Groceries" />
+        <h2 class="h-secondary center">Groceries</h2>
+        <p class="center">
+          Get fresh groceries delivered to your doorstep. Choose from fruits,
+          vegetables, dairy, snacks, and daily essentials at great deals.
+        </p>
+      </div>
+      <div class="box">
+        <img src="./p2.png" alt="Products" />
+        <h2 class="h-secondary center">Products</h2>
+        <p class="center">
+          Browse through our top-selling products, including tech gadgets, home
+          appliances, lifestyle items, and more. Quality assured and
+          customer-approved.
+        </p>
+      </div>
+    </section>
+
+    <section id="products-section">
+      <h1 class="h-primary container">Our Products</h1>
+      <div id="products">
+        <div class="items"><img src="./pp1.jpg" alt="" /></div>
+        <div class="items"><img src="./pp2.jpg" alt="" /></div>
+        <div class="items"><img src="./pp3.jpg" alt="" /></div>
+        <div class="items"><img src="./shoes.jpg" alt="" /></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1 class="h-primary center">Contact Us</h1>
+      <div id="contact-box">
+        <form action="">
+          <div class="form-group">
+            <input type="text" placeholder="Enter Your Name" />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Enter Your email" />
+          </div>
+          <div class="form-group">
+            <input type="number" placeholder="Enter Your Number" />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" cols="20" rows="5"></textarea>
+          </div>
+          <button class="cbtn">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="center">
+        copyright &copy; www.ssn.edu.in All Rights Reserved
+      </div>
+    </footer>
+  </body>
+</html>
